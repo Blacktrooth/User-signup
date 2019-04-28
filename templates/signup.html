@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Signup</h1>
+<form action='/signup' method='POST'>
+    <table>
+        <tr>
+            <td>
+                <label><font color="goldenrod">Codename</font></label>
+            </td>
+            <td>
+                <input type='text' name='username' value='{{ username }}'/>
+                {% if error.user %}
+                <span class='error'><img src="https://media0.giphy.com/media/ThG2edkmgSUxi/source.gif" height="200" width="200" align="right"> {{error.user }}</span>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><font color="goldenrod">Password</font></label>    
+            </td>
+            <td>
+                <input type='password' name='password'/>
+                {% if error.pass %}
+                <span class='error'><img src="https://media.giphy.com/media/AMJL5dMqqxNL2/giphy.gif" height="200" width="200" align="right">{{error.pass }}</span>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><font color="goldenrod">Verify Password</font></label>
+            </td>
+            <td>
+                <input type='password' name='ver_pass'/>
+                {% if error.match %}
+                <span class='error'><img src="https://i.pinimg.com/originals/c0/4e/44/c04e44dd3f43bacfd6fdd991251d1711.gif" height="200" width="200" align="right"> {{error.match }}</span>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><font color="goldenrod">Email (Optional)</font></label>
+            </td>
+            <td>
+                <input type='text' name='email' value='{{ email }}'/>
+                {% if error.email %}
+                <span class='error'><img src="https://media.giphy.com/media/abde1ql01t1n2/giphy.gif" height="200" width="200" align="right"> {{error.email }}</span>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+    <input type='submit' value='Submit'/>
+</form>
+    <img src="https://media.giphy.com/media/a5viI92PAF89q/giphy.gif">
+
+{% endblock %}
